@@ -14,7 +14,7 @@ import com.example.demo.Services.UserStoryService;
 
 @RestController
 
-public class Second {
+public class UserStoryController {
 
 	@Autowired
 	private UserStoryService userstoryService;

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -25,6 +27,9 @@ public class Features
 	//@JoinColumn(name="feature_id",referencedColumnName = "feature_id", nullable = true)
 	
 	private List<UserStory> userstory;
+	@ManyToOne
+	@JoinColumn(name="epic_id")
+	private Epic epic;
 	
 	public List<UserStory> getUserstory() 
 	{
@@ -64,6 +69,9 @@ public class Features
 	public void setFeatureName(String featureName) 
 	{
 		this.FeatureName = featureName;
+	}
+	public void setEpic(Epic epic) {
+		this.epic = epic;
 	}
 	
 

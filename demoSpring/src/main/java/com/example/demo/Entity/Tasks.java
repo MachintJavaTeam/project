@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,6 +34,11 @@ public class Tasks {
   @OneToMany(mappedBy = "task",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JsonManagedReference(value="user-person2")
    private List<EmployeeTask> tasksemp ;
+  
+  
+  @ManyToOne
+  @JoinColumn(name="UserStory_id")
+  private UserStory userstory;
 	public Long getId() {
 		return id;
 	}
@@ -70,6 +76,19 @@ public class Tasks {
 	public void setTasksemp(List<EmployeeTask> tasksemp) {
 		this.tasksemp = tasksemp;
 	}
+
+
+
+	public UserStory getUserstory() {
+		return userstory;
+	}
+
+
+
+	public void setUserstory(UserStory userstory) {
+		this.userstory = userstory;
+	}
+	
 	
 
 //	public List<Employee> getEmpname() {

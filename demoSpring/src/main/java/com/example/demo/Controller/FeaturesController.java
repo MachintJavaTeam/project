@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Entity.Features;
 import com.example.demo.Services.FeaturesService;
 @RestController
-public class First {
+public class FeaturesController {
 	@Autowired
 	FeaturesService featuresService;
 	

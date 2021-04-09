@@ -1,5 +1,7 @@
 package com.example.demo.Entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -30,6 +33,9 @@ public class UserStory {
 	@ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL,optional=false)
 	@JoinColumn(name="feature_id",insertable=false,updatable=false)
 	private Features features;
+	
+	@OneToMany(mappedBy="userstory",cascade = CascadeType.ALL)
+	private List<Tasks> tasks;
 	public String getProjectName() 
 	{
 		return ProjectName;
@@ -98,5 +104,19 @@ public class UserStory {
 	{
 		UserStoryDetails = userStoryDetails;
 	}
+	public Features getFeatures() {
+		return features;
+	}
+	public void setFeatures(Features features) {
+		this.features = features;
+	}
+	public List<Tasks> getTasks() {
+		return tasks;
+	}
+	public void setTasks(List<Tasks> tasks) {
+		this.tasks = tasks;
+	}
+	
+	
 
 }

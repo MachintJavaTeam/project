@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
-
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -39,6 +39,10 @@ public class Epic {
 	@JoinColumn(name="project_id",insertable=false,updatable=false)
 	@JsonBackReference(value="projectt")
 	private Project project;
+	
+	
+	@OneToMany(mappedBy="epic",cascade = CascadeType.ALL)
+	private List<Features> features;
 	public int getProject_id() {
 		return project_id;
 	}
@@ -66,6 +70,19 @@ public class Epic {
 	public void setEpic_name(String epic_name) {
 		this.epic_name = epic_name;
 	}
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
+	}
+	public List<Features> getFeatures() {
+		return features;
+	}
+	public void setFeatures(List<Features> features) {
+		this.features = features;
+	}
+	
 }
 	
 	
