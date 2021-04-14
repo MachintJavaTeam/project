@@ -44,6 +44,7 @@ public class Epic {
 	@OneToMany(mappedBy="epic",cascade = CascadeType.ALL)
 	@JsonManagedReference(value="projectt1")
 	private List<Features> features;
+//comments...
 	public int getProject_id() {
 		return project_id;
 	}
