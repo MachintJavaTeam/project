@@ -29,14 +29,14 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Epic {
 	@Id
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int project_id;
+	//private int project_id;
 	private int epic_id;
 	private String epic_name;
-	private String project_name;
+	//private String project_name;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 			//,optional=false)
-	@JoinColumn(name="project_id",insertable=false,updatable=false)
+	@JoinColumn(name="project_id")
 	@JsonBackReference(value="projectt")
 	private Project project;
 	
@@ -45,18 +45,7 @@ public class Epic {
 	@JsonManagedReference(value="projectt1")
 	private List<Features> features;
 //comments...
-	public int getProject_id() {
-		return project_id;
-	}
-	public void setProject_id(int project_id) {
-		this.project_id = project_id;
-	}
-	public String getProject_name() {
-		return project_name;
-	}
-	public void setProject_name(String project_name) {
-		this.project_name = project_name;
-	}
+	
 	
 	public int getEpic_id() {
 		return this.epic_id;

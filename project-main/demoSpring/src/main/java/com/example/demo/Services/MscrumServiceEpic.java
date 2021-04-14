@@ -24,7 +24,7 @@ public Epic addEpic(Epic epic)
 	
 	return mscrumDaoEpic.save(epic);
 }
-public List<Epic> getAllEpics()
+public List<Epic> getAllEpic()
 {
 	return mscrumDaoEpic.findAll();
 }
