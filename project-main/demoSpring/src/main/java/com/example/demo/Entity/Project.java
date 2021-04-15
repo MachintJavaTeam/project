@@ -30,39 +30,33 @@ public class Project {
 	private int project_id;
 	private String project_name;
 	private String project_description;
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="project",fetch=FetchType.EAGER,orphanRemoval=true)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="project",fetch=FetchType.EAGER)
 	@JsonManagedReference(value="projectt")
 	private List<Epic> epic;
-    public List<Epic> getEpics() {
-		return epic;
-	}
-
-	public void setEpics(List<Epic> epic) {
-		this.epic = epic;
-	}
-	
-
 	public int getProject_id() {
-		return this.project_id;
+		return project_id;
 	}
-	
-	public void setProject_description(String project_description) {
-		this.project_description = project_description;
-	}
-	public String getProject_description() {
-		return this.project_description;
-	}
-	
 	public void setProject_id(int project_id) {
 		this.project_id = project_id;
 	}
-	
 	public String getProject_name() {
-		return this.project_name;
+		return project_name;
 	}
 	public void setProject_name(String project_name) {
 		this.project_name = project_name;
 	}
-	
+	public String getProject_description() {
+		return project_description;
+	}
+	public void setProject_description(String project_description) {
+		this.project_description = project_description;
+	}
+	public List<Epic> getEpic() {
+		return epic;
+	}
+	public void setEpic(List<Epic> epic) {
+		this.epic = epic;
+	}
+   
 	}
 	

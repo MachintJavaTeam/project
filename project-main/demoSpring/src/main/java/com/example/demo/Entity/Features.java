@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,12 +23,10 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Features 
 {
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.AUTO)
 	private int feature_id;
-	private String ProjectName;
-	private String Epic;
-	private String FeatureName;
-	@OneToMany(mappedBy="features", cascade = CascadeType.ALL,orphanRemoval=false)
+    private String FeatureName;
+	@OneToMany(mappedBy="features", cascade = CascadeType.ALL)
 	@JsonManagedReference(value="projectt2")
 	//@JoinColumn(name="feature_id",referencedColumnName = "feature_id", nullable = true)
 	
@@ -35,49 +35,34 @@ public class Features
 	@JoinColumn(name="epic_id")
 	@JsonBackReference(value="projectt1")
 	private Epic epic;
-	
-	public List<UserStory> getUserstory() 
-	{
-		return userstory;
-	}
-	public void setUserstory(List<UserStory> userstory) 
-	{
-		this.userstory = userstory;
-	}
-	public String getProjectName() 
-	{
-		return ProjectName;
-	}
-	public void setProjectName(String projectName) 
-	{
-		this.ProjectName = projectName;
-	}
 	public int getFeature_id() {
 		return feature_id;
 	}
 	public void setFeature_id(int feature_id) {
 		this.feature_id = feature_id;
 	}
-	
-	public String getEpic() 
-	{
-		return Epic;
-	}
-	public void setEpic(String epic) 
-	{
-		this.Epic = epic;
-	}
-	public String getFeatureName() 
-	{
+	public String getFeatureName() {
 		return FeatureName;
 	}
-	public void setFeatureName(String featureName) 
-	{
-		this.FeatureName = featureName;
+	public void setFeatureName(String featureName) {
+		FeatureName = featureName;
+	}
+	public List<UserStory> getUserstory() {
+		return userstory;
+	}
+	public void setUserstory(List<UserStory> userstory) {
+		this.userstory = userstory;
+	}
+	public Epic getEpic() {
+		return epic;
 	}
 	public void setEpic(Epic epic) {
 		this.epic = epic;
 	}
+	
+	
+	
+
 	
 
 }

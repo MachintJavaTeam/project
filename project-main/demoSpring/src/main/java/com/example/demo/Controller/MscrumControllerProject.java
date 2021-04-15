@@ -22,10 +22,11 @@ public class MscrumControllerProject {
     private MscrumService mscrumService;
     
     @PostMapping("/project")
-    public ResponseEntity<Project> saveProject(@RequestBody Project project) {
+    public Project saveProject(@RequestBody Project project) {
+    	
+    	return mscrumService.addProject(project);
  
-        Project object = mscrumService.addProject(project);
-        return new ResponseEntity<>(object, HttpStatus.OK);
+    	
     }
  
  
