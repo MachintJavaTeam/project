@@ -32,9 +32,9 @@ public class MscrumControllerEpic {
     }
  
     @GetMapping("/get-epic")
-    public ResponseEntity<List<Epic>> getAllEpics() {
+    public ResponseEntity<List<Epic>> getAllEpic() {
  
-        List<Epic> epic = mscrumServiceEpic.getAllEpics();
+        List<Epic> epic = mscrumServiceEpic.getAllEpic();
         return new ResponseEntity<>(epic, HttpStatus.OK);
     }
  
