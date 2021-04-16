@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.Dao.EmployeeDao;
 import com.example.demo.Entity.Employee;
+import com.example.demo.Entity.Epic;
 
 
 @Service
@@ -20,6 +21,12 @@ public class EmployeeService {
 	}
 	public Optional<Employee> getEmployeeDetails(long id) {
 		 return employeeDao.findById(id);
+	}
+	public Employee editEmployee(Employee entity) {
+		return employeeDao.save(entity);
+	}
+	public void deleteEmployee(Long empid) {
+		 employeeDao.deleteById(empid);
 	}
 
 }

@@ -4,11 +4,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 //import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
  
@@ -21,16 +25,14 @@ public class MscrumControllerProject {
     @Autowired
     private MscrumService mscrumService;
     
-    @PostMapping("/project")
+    @PostMapping("/post-Project")
     public Project saveProject(@RequestBody Project project) {
-    	
-    	return mscrumService.addProject(project);
- 
-    	
+    	 
+        return mscrumService.addProject(project);
+      
     }
  
- 
-    @GetMapping("/get-projects")
+    @GetMapping("/get-Project")
     public ResponseEntity<List<Project>> getAllProjects() {
  
         List<Project> project = mscrumService.getAllProjects();
@@ -38,17 +40,18 @@ public class MscrumControllerProject {
     }
  
     
-   /* @PutMapping("/project")
+    @PutMapping("/put-Project")
     public ResponseEntity<Project> updateProject(@RequestBody Project project) {
  
         Project object = mscrumService.editProject(project);
         return new ResponseEntity<>(object, HttpStatus.OK);
     }
  
-    @DeleteMapping("/project")
-    public ResponseEntity<String> deleteProject(@RequestParam(name = "id") Integer id) {
+    @DeleteMapping("/delete-Project/{project_id}")
+    public void deleteProject(@PathVariable Integer project_id) {
  
-        mscrumService.deleteProject(id);
-        return new ResponseEntity<>("Project with ID :" + id + " deleted successfully", HttpStatus.OK);
-    }*/
+        mscrumService.deleteProject(project_id);
+        
+    }
+    
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Dao.UserStoryDao;
+import com.example.demo.Entity.Epic;
 import com.example.demo.Entity.UserStory;
 
 @Service
@@ -21,15 +22,10 @@ public class UserStoryService
 	{
 		return userstoryDao.save(userstory);
 	}
-	
-	
-	/*public UserStory saveUserStory(UserStory userstory) 
-	{
-		return userstoryDao.save(userstory);
+	public UserStory editUserStory(UserStory entity) {
+		return userstoryDao.save(entity);
 	}
-	public Optional<UserStory> getUserStoryDetails(int feature_id) 
-	{
-		return userstoryDao.findById(feature_id);
-	}*/
-
+	public void deleteUserStory(Long userstory_id) {
+		 userstoryDao.deleteById(userstory_id);
+	}
 }

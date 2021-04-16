@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Dao.FeaturesDao;
+import com.example.demo.Entity.Epic;
 import com.example.demo.Entity.Features;
+import com.example.demo.Entity.Project;
 
 @Service
 public class FeaturesService 
@@ -23,16 +25,12 @@ public class FeaturesService
 		return featuresDao.save(features);
 	}
 
-	/*
-	public Features saveFeatures(Features features) 
-	{
-		return featuresDao.save(features);
+	public Features editFeatures(Features entity) {
+		return featuresDao.save(entity);
+	}
+	public void deleteFeatures(Long feature_id) {
+		 featuresDao.deleteById(feature_id);
 	}
 	
-	public Optional<Features> getFeaturesDetails(int feature_id) 
-	{
-		
-		return featuresDao.findById(feature_id);
-	}*/
 	
 }

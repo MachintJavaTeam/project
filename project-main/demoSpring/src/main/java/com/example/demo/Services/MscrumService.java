@@ -20,22 +20,17 @@ private MscrumDaoProject mscrumDaoProject;
 //private MscrumDaoEpic mscrumDaoEpic;
 
 public Project addProject(Project project) {
-	/*Epic epic=mscrumDaoEpic.findById(project.getEpic().getEpic_id()).orElse(null);
-	if(null == epic) {
-		epic =new Epic();
-	}
-	epic.setEpic_name(project.getEpic().getEpic_name());
-	project.setEpic(epic);*/
+	
 	return mscrumDaoProject.save(project);
 }
 public List<Project> getAllProjects()
 {
 	return mscrumDaoProject.findAll();
 }
-/*public Project editProject(Project entity) {
+public Project editProject(Project entity) {
 	return mscrumDaoProject.save(entity);
 }
-public void deleteProject(Integer id) {
-	 mscrumDaoProject.deleteById(id);
-}*/
+public void deleteProject(Integer project_id) {
+	 mscrumDaoProject.deleteById(project_id);
+}
 }
